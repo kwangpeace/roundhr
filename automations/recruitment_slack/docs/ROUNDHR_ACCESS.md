@@ -1,25 +1,13 @@
-# 라운드HR 배치(자동화) 데이터 접근
+# 라운드HR 데이터 접근
 
 ## 결론
 
-- Cursor용 **라운드HR MCP**(`query_data`)는 대화형 분석에 맞춰져 있으며, **GitHub Actions 등 배치 러너에서 동일하게 호출하는 공개 HTTP 스펙은 이 레포에 포함되어 있지 않습니다.**
-- **라운드HR 고객지원(support@roundhr.com)** 또는 관리 콘솔 문서에서 **자동화용 API·쿼리 엔드포인트** 제공 여부를 확인해야 합니다.
+- **지원자 조회·선별은 Cursor에서 라운드HR MCP**로만 합니다. MCP는 IDE(Cursor) 세션 안에서 동작하며, 이 폴더의 Python 스크립트가 라운드HR에 대신 로그인하거나 API를 부를 수는 없습니다.
+- 운영 절차는 [`../PROMPT_ROUNDHR.md`](../PROMPT_ROUNDHR.md)를 따르세요.
 
-## 권장 확인 사항
+## MCP에서 쓸 SQL 예시
 
-1. MCP와 동일한 읽기 전용 SQL을 **서비스 계정 토큰**으로 호출할 수 있는지.
-2. 없을 경우 **정기 데이터보내기**(CSV/JSON) 또는 **웹훅** 지원 여부.
-
-## 이 레포에서의 대응
-
-| 방식 | 설명 |
-|------|------|
-| `ROUNDHR_API_URL` + `ROUNDHR_API_TOKEN` | 지원팀에서 URL·인증 방식을 받은 뒤 `.env`에 설정. `src/data_sources/roundhr_http.py`가 `POST {"query":"..."}` 형태를 가정(실제 페이로드는 받은 스펙에 맞게 수정). |
-| `INPUT_JSON_PATH` | MCP/수동 SQL로 뽑은 결과를 JSON 파일로 저장해 배치가 읽도록 함(운영 전 단계에 실용적). |
-
-## 수동 추출용 SQL 예시 (MCP `query_data`에서 실행)
-
-지원 슬롯(`applied`) 지원자와 공고 메타만 가져오는 예시입니다. SQL 주석은 라운드HR MCP 규칙상 사용하지 마세요.
+지원 슬롯(`applied`)과 공고 메타 위주입니다. SQL 주석은 라운드HR MCP 규칙에 맞게 사용하지 마세요.
 
 ```sql
 SELECT c.id AS candidate_id,
@@ -41,4 +29,4 @@ WHERE c.job_stage_kind = 'applied'
 ORDER BY c.job_id, c.candidate_applied_at DESC
 ```
 
-결과를 JSON 배열로 저장한 뒤 `INPUT_JSON_PATH`로 지정하면 파이프라인이 동작합니다.
+기간 필터(전날 09:50 KST~ 등)는 Cursor 프롬프트에 적어 두었으니, MCP 쿼리에 `candidate_applied_at` 조건을 추가해 좁혀도 됩니다.

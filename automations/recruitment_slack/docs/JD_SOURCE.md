@@ -1,36 +1,12 @@
-# 공고 전문(JD) 확보
+# 채용 기준(JD·평가지표) 출처
 
-## 결론
+- **단일 파일**: [`../config/hiring_rubric_2026.md`](../config/hiring_rubric_2026.md)  
+  서비스기획자, CFO, AI 컨설턴트, 연구소장, R&D PM 등 포지션별 공고·평가지표가 한 파일에 정리되어 있습니다.
 
-- 라운드HR MCP의 `vw_jobs`에는 **공고 제목·팀·직군·카운트 등 메타**가 중심이며, **전체 JD 본문**이 뷰에 없을 수 있습니다.
-- 추천 품질을 위해 **JD 원문을 이 레포 또는 외부 저장소에 병합**하는 방식을 권장합니다.
+## Cursor에서 쓰는 방법
 
-## 이 레포에서의 JD 경로
+채팅에 `@config/hiring_rubric_2026.md` 를 붙인 뒤, [`../PROMPT_ROUNDHR.md`](../PROMPT_ROUNDHR.md)의 지시문을 붙여넣습니다.
 
-| 우선순위 | 경로 | 설명 |
-|----------|------|------|
-| 1 | `config/jd/{job_id}.txt` | 한 파일당 하나의 공고. UTF-8 텍스트. |
-| 2 | 환경 변수 `JD_FALLBACK` | 모든 공고에 동일한 기본 JD를 쓸 때(비권장, 테스트용). |
+## 수정할 때
 
-`job_id`는 `vw_candidates.job_id`와 동일한 정수 문자열입니다.
-
-## `job_id` ↔ JD 파일 (2026년 채용지표 반영)
-
-내부 문서 `2026년 채용지표.txt`를 포지션별로 나누어 `config/jd/{job_id}.txt`에 넣어 두었습니다.  
-**라운드HR 실제 `job_id`가 아래와 다르면**, 파일 이름을 실제 ID에 맞게 바꾸거나(내용 복사) 동기화하면 됩니다.
-
-| `job_id` | 포지션 |
-|----------|--------|
-| `6001` | 서비스 기획자 (공고 + 평가지표 v2) |
-| `4664` | CFO (공고 + 평가지표) |
-| `6002` | AI 컨설턴트 |
-| `6003` | 연구소장 |
-| `6004` | R&D PM |
-
-## 운영 절차
-
-1. 채용 사이트 또는 라운드HR 관리 화면에서 JD를 복사합니다.
-2. `automations/recruitment_slack/config/jd/4664.txt` 형식으로 저장합니다.
-3. 배치 실행 시 해당 공고 지원자 그룹에 JD가 자동으로 붙습니다.
-
-JD 파일이 없으면 파이프라인은 **`job_title`, `team_title`, `position_group_title`, `position_title`만** JD 대용으로 LLM에 전달합니다.
+`hiring_rubric_2026.md`만 편집하면 됩니다. `job_id`는 라운드HR `vw_candidates.job_id`와 맞추어, Cursor가 공고별로 해당 섹션을 고르도록 프롬프트에서 설명해 주면 됩니다.
