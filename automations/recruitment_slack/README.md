@@ -23,7 +23,8 @@ cd automations\recruitment_slack
 | [PROMPT_ROUNDHR.md](PROMPT_ROUNDHR.md) | Cursor용 프롬프트 (`applied` 전원, 일시 필터 없음) |
 | [config/hiring_rubric_2026.md](config/hiring_rubric_2026.md) | 포지션별 JD·평가지표 통합본 |
 | [docs/SLACK_SETUP.md](docs/SLACK_SETUP.md) | Slack 봇 권한·채널 ID |
-| [docs/ROUNDHR_ACCESS.md](docs/ROUNDHR_ACCESS.md) | MCP로만 조회한다는 점·SQL 예시 |
+| [docs/ROUNDHR_ACCESS.md](docs/ROUNDHR_ACCESS.md) | MCP로만 조회·SQL 예시 |
+| [docs/ROUNDHR_MCP.md](docs/ROUNDHR_MCP.md) | 공식 [MCP 연동](https://guide.roundhr.com/round-ai/mcp) 요약·URL·승인·401 대응 |
 | [docs/RUBRIC.md](docs/RUBRIC.md) | S/A/B/C 의미 (보조) |
 | [docs/JD_SOURCE.md](docs/JD_SOURCE.md) | 루브릭 파일 위치 |
 

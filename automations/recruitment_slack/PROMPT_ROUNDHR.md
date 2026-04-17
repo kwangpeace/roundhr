@@ -1,6 +1,7 @@
 # Cursor에서 쓰는 프롬프트 (라운드HR MCP + 채용 기준)
 
-> **중요**: 라운드HR MCP는 **Cursor 안에서만** 동작합니다. 터미널 스크립트가 자동으로 라운드HR에 로그인할 수는 없습니다.
+> **중요**: 라운드HR MCP는 **Cursor 안에서만** 동작합니다. 터미널 스크립트가 자동으로 라운드HR에 로그인할 수는 없습니다.  
+> 연동·401·조직 승인은 [docs/ROUNDHR_MCP.md](docs/ROUNDHR_MCP.md) · 원문 [MCP 연동](https://guide.roundhr.com/round-ai/mcp) 을 참고하세요.
 
 ## 1) 채용 기준 파일
 

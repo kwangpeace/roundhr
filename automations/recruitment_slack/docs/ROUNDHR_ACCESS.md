@@ -1,5 +1,9 @@
 # 라운드HR 데이터 접근
 
+## MCP 연동·401 대응
+
+플랜·**조직 사전 승인**·MCP URL·OAuth 절차는 공식 가이드를 요약한 [`ROUNDHR_MCP.md`](ROUNDHR_MCP.md) 를 보세요. (원문: [guide.roundhr.com — MCP 연동](https://guide.roundhr.com/round-ai/mcp))
+
 ## 결론
 
 - **지원자 조회·선별은 Cursor에서 라운드HR MCP**로만 합니다. MCP는 IDE(Cursor) 세션 안에서 동작하며, 이 폴더의 Python 스크립트가 라운드HR에 대신 로그인하거나 API를 부를 수는 없습니다.
