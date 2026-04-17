@@ -28,4 +28,4 @@
 
 ## 한 줄 요약
 
-> **필요할 때 = 기간(KST) 적고 Cursor에서 MCP 조회·선별 → `message.md` 저장 → `send_slack.bat` → `토큰|채널` 한 줄**
+> **필요할 때 = Cursor에서 MCP로 `applied` 전원 조회·선별 → `message.md` 저장 → `send_slack.bat` → `토큰|채널` 한 줄**

@@ -20,7 +20,7 @@ cd automations\recruitment_slack
 | 경로 | 내용 |
 |------|------|
 | [manuals/README.md](manuals/README.md) | 단계별 매뉴얼 (한국어) |
-| [PROMPT_ROUNDHR.md](PROMPT_ROUNDHR.md) | Cursor용 프롬프트 (기간은 요청 시 직접 지정) |
+| [PROMPT_ROUNDHR.md](PROMPT_ROUNDHR.md) | Cursor용 프롬프트 (`applied` 전원, 일시 필터 없음) |
 | [config/hiring_rubric_2026.md](config/hiring_rubric_2026.md) | 포지션별 JD·평가지표 통합본 |
 | [docs/SLACK_SETUP.md](docs/SLACK_SETUP.md) | Slack 봇 권한·채널 ID |
 | [docs/ROUNDHR_ACCESS.md](docs/ROUNDHR_ACCESS.md) | MCP로만 조회한다는 점·SQL 예시 |
