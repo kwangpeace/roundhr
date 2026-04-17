@@ -18,7 +18,7 @@
 
 라운드HR MCP로 다음을 수행해 주세요.
 
-1) `job_stage_kind == "applied"` 인 지원자만 조회합니다. `candidate_applied_at` 등으로 기간을 좁히지 마세요.
+1) MCP SQL의 `WHERE`에는 `job_stage_kind = 'applied'` 만 넣습니다. 지원일·기간으로 행을 거르지 마세요. (`SELECT` 목록에 `candidate_applied_at` 컬럼을 포함하는 것은 괜찮습니다.)
 2) 공고(`job_id`)별로 지원자를 묶고, 위에 첨부한 채용 기준 문서에서 **해당 포지션**에 맞는 JD·평가지표를 적용해 **S / A / B / C** 로 서류 단계 등급을 매겨 주세요.
    - S: 서류 즉시 통과 권장 (우수)
    - A: 서류 통과 권장
