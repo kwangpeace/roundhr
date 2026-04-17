@@ -29,4 +29,4 @@ WHERE c.job_stage_kind = 'applied'
 ORDER BY c.job_id, c.candidate_applied_at DESC
 ```
 
-기간 필터(전날 09:50 KST~ 등)는 Cursor 프롬프트에 적어 두었으니, MCP 쿼리에 `candidate_applied_at` 조건을 추가해 좁혀도 됩니다.
+조회 기간은 **요청할 때 채팅에 적은 KST 구간**만 씁니다. MCP 쿼리의 `WHERE`에 `candidate_applied_at` 조건으로 넣으면 됩니다. ([`../PROMPT_ROUNDHR.md`](../PROMPT_ROUNDHR.md) 참고.)
