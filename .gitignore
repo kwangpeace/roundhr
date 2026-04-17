@@ -19,4 +19,7 @@ __pycache__/
 # Cursor 로컬 설정(팀 공유가 필요하면 제외)
 .cursor/
 
+# 매일 아침 MCP로 뽑는 지원자 JSON (개인정보)
+automations/recruitment_slack/today.json
+
 
