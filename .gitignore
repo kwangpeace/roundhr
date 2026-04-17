@@ -1,0 +1,22 @@
+# 로컬/비밀
+
+.env
+
+.env.*
+
+!.env.example
+
+.venv/
+
+__pycache__/
+
+*.py[cod]
+
+*.egg-info/
+
+.DS_Store
+
+# Cursor 로컬 설정(팀 공유가 필요하면 제외)
+.cursor/
+
+

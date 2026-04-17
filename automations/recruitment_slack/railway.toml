@@ -1,0 +1,12 @@
+# Railway 대시보드에서 이 폴더를 루트 디렉터리로 지정하거나,
+# 저장소 루트에서 서비스 루트만 `automations/recruitment_slack`으로 맞춥니다.
+#
+# 크론은 Railway의 **Cron Job** 서비스에서 스케줄만 설정하고,
+# 시작 커맨드는 아래와 동일하게 두면 됩니다.
+
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+startCommand = "python -m src.main"
