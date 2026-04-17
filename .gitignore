@@ -22,4 +22,7 @@ __pycache__/
 # 매일 아침 MCP로 뽑는 지원자 JSON (개인정보)
 automations/recruitment_slack/today.json
 
+# Cursor에서 정리한 Slack 전송용 초안 (개인정보)
+automations/recruitment_slack/message.md
+
 

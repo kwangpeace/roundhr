@@ -6,7 +6,8 @@
 
 | 문서 | 내용 |
 |------|------|
-| [docs/DAILY_WORKFLOW.md](docs/DAILY_WORKFLOW.md) | **매일 아침 운영 순서 (Cursor + MCP + run_today.bat)** |
+| [docs/CURSOR_ONLY_WORKFLOW.md](docs/CURSOR_ONLY_WORKFLOW.md) | **Cursor만으로 판정·Slack 전송 (Gemini 없이)** |
+| [docs/DAILY_WORKFLOW.md](docs/DAILY_WORKFLOW.md) | 매일 아침 운영 순서 (Cursor + MCP + run_today.bat, Gemini 자동 판정) |
 | [docs/ROUNDHR_ACCESS.md](docs/ROUNDHR_ACCESS.md) | 배치용 데이터 접근·수동 SQL 추출 |
 | [docs/JD_SOURCE.md](docs/JD_SOURCE.md) | 공고 전문 `config/jd/{job_id}.txt` |
 | [docs/RUNTIME.md](docs/RUNTIME.md) | 스케줄(UTC)·평가 기간 규칙 |
