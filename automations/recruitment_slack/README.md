@@ -1,6 +1,6 @@
 # 채용 서류 지원자 요약 → Slack
 
-**라운드HR**에서 `applied`(지원) 단계 지원자를 **Cursor + 라운드HR MCP**로 조회하고, `config/hiring_rubric_2026.md` 기준으로 **S / A / B / C** 등급을 매긴 뒤, 정리한 내용을 **Slack**으로 보냅니다.
+**라운드HR**에서 `applied`(지원) 단계 지원자를 **진행 중 공고**로 한정해 **Cursor + 라운드HR MCP**로 조회하고, `config/hiring_rubric_2026.md` 기준으로 **S / A / B / C** 등급을 매긴 뒤, 정리한 내용을 **Slack**으로 보냅니다.
 
 ## 한 줄 흐름
 
@@ -20,7 +20,7 @@ cd automations\recruitment_slack
 | 경로 | 내용 |
 |------|------|
 | [manuals/README.md](manuals/README.md) | 단계별 매뉴얼 (한국어) |
-| [PROMPT_ROUNDHR.md](PROMPT_ROUNDHR.md) | Cursor용 프롬프트 (`applied` 전원, 일시 필터 없음) |
+| [PROMPT_ROUNDHR.md](PROMPT_ROUNDHR.md) | Cursor용 프롬프트 (`applied` + `vw_jobs` 진행 중, 일시 필터 없음) |
 | [config/hiring_rubric_2026.md](config/hiring_rubric_2026.md) | 포지션별 JD·평가지표 통합본 |
 | [docs/SLACK_SETUP.md](docs/SLACK_SETUP.md) | Slack 봇 권한·채널 ID |
 | [docs/ROUNDHR_ACCESS.md](docs/ROUNDHR_ACCESS.md) | MCP로만 조회·SQL 예시 |

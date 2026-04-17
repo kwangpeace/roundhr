@@ -11,14 +11,15 @@
 
 ## 2) 아래 블록을 Cursor 채팅에 붙여넣기
 
-**지원일시·기간 조건은 두지 않습니다.** `applied` 단계에 있는 지원자를 전부 조회합니다.
+**지원일시·기간 조건은 두지 않습니다.** 다만 지원자는 **삭제되지 않았고 채용이 진행 중(`in_progress`)인 공고**에 지원한 경우만 포함합니다. (`vw_jobs`와 `INNER JOIN`, 아래 1번.)
 
 ```
 @config/hiring_rubric_2026.md
 
 라운드HR MCP로 다음을 수행해 주세요.
 
-1) MCP SQL의 `WHERE`에는 `job_stage_kind = 'applied'` 만 넣습니다. 지원일·기간으로 행을 거르지 마세요. (`SELECT` 목록에 `candidate_applied_at` 컬럼을 포함하는 것은 괜찮습니다.)
+1) MCP SQL은 `vw_candidates c` 와 `vw_jobs j` 를 `j.id = c.job_id` 로 **INNER JOIN** 합니다. `WHERE` 에 반드시 `c.job_stage_kind = 'applied'` 와 `j.deleted = 0` 과 `j.application_form_status = 'in_progress'` 를 넣습니다. (마감·보관·삭제된 공고·종료된 공고 지원자는 제외.) 지원일·기간으로 행을 거르지 마세요. `SELECT` 에 `candidate_applied_at` 을 포함하는 것은 괜찮습니다.  
+   - (선택) 조직에서 지원서 접수만 열린 공고로 더 좁히려면 `j.application_form_open_status = 1` 을 추가할 수 있습니다. 이 조건으로 0건이면 제외하고 진행 중 공고만 사용하세요.
 2) 공고(`job_id`)별로 지원자를 묶고, 위에 첨부한 채용 기준 문서에서 **해당 포지션**에 맞는 JD·평가지표를 적용해 **S / A / B / C** 로 서류 단계 등급을 매겨 주세요.
    - S: 서류 즉시 통과 권장 (우수)
    - A: 서류 통과 권장
@@ -29,7 +30,7 @@
 출력은 **JSON이나 코드 설명 없이**, Slack용 마크다운 **한 덩어리**만 주세요. 형식:
 
 :briefcase: *서류 단계 지원자 선별 요약*
-_범위_: `applied` 전원 (지원일시 필터 없음)
+_범위_: `applied` + **진행 중 공고** (`vw_jobs` · `in_progress` · 미삭제)만, 지원일시 필터 없음
 _대상_: `applied` N명 / 공고 M건
 
 *{team_title}* · *{job_title}* (`job_id={job_id}`)
